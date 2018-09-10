@@ -1,0 +1,14 @@
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\bin\Debug\netcoreapp2.1\Web-Api.deps.json
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\bin\Debug\netcoreapp2.1\Web-Api.runtimeconfig.json
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\bin\Debug\netcoreapp2.1\Web-Api.runtimeconfig.dev.json
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\bin\Debug\netcoreapp2.1\Web-Api.dll
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\bin\Debug\netcoreapp2.1\Web-Api.pdb
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.csprojAssemblyReference.cache
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.csproj.CoreCompileInputs.cache
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.RazorAssemblyInfo.cache
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.RazorAssemblyInfo.cs
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.AssemblyInfoInputs.cache
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.AssemblyInfo.cs
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.RazorTargetAssemblyInfo.cache
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.dll
+C:\Users\Omistaja\Documents\Taustajärjestelmät\GameServer\Web-Api\obj\Debug\netcoreapp2.1\Web-Api.pdb
