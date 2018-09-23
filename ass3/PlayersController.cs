@@ -1,54 +1,48 @@
 using System;
-using Microsoft.AspNetCore.Mvc;
-using game_server.Validation;
-using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc;
 namespace ass3
 {
-   [Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class PlayersController : ControllerBase
+    public class PlayersController
     {
-        private readonly ILogger<PlayersController> _logger;
-        private readonly PlayersProcessor _playerProcessor;
+        PlayersProcessor _processor;
 
-        public PlayersController(ILogger<PlayersController> logger, PlayersProcessor playersProcessor)
+        public PlayersController(PlayersProcessor processor)
         {
-            _logger = logger;
-            _playerProcessor = playersProcessor;
+            _processor = processor;
+        }
+
+        [HttpGet("{id:Guid}")]
+        public Task<Player> Get(Guid id)
+        {
+            return _processor.Get(id);
         }
 
         [HttpGet]
-        [Route("")]
         public Task<Player[]> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        [HttpGet]
-        [Route("{playerId}")]
-        public Task<Player> Get(string playerId)
-        {
-            
-            throw new NotImplementedException();
+            return _processor.GetAll();
         }
 
         [HttpPost]
-        [Route("")]
-        [ValidateModel]
-        public Task<Player> Create(NewPlayer newPlayer)
+        public Task<Player> Create([FromBody] NewPlayer player)
         {
-            _logger.LogInformation("Creating player with name " + newPlayer.Name);
-            return _playerProcessor.CreatePlayer(newPlayer);
+            return _processor.Create(player);
         }
 
-        [HttpDelete]
-        [Route("{playerId}")]
-        public Task<Player> Ban(Guid playerId)
+        [HttpPut("{id:Guid}")]
+        public Task<Player> Modify(Guid id, [FromBody] ModifiedPlayer player)
         {
-            throw new NotImplementedException();
+            return _processor.Modify(id, player);
         }
+
+        [HttpDelete("{id:Guid}")]
+        public Task<Player> Delete(Guid id)
+        {
+            return _processor.Delete(id);
+        }
+        
     }
-
 }

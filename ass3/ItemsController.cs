@@ -1,54 +1,47 @@
 using System;
-using Microsoft.AspNetCore.Mvc;
-using game_server.Validation;
-using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc;
 namespace ass3
 {
-   [Route("api/[controller]")]
-    [ApiController]
-    public class ItemsController : ControllerBase
+    [Route("api/players/{playerId:Guid}/[controller]")]
+    public class ItemsController
     {
-        private readonly ILogger<ItemsController> _logger;
-        private readonly ItemsProcessor _itemProcessor;
+        ItemsProcessor _processor;
 
-        public ItemsController(ILogger<ItemsController> logger, ItemsProcessor ItemsProcessor)
-        {
-            _logger = logger;
-            _itemProcessor = ItemsProcessor;
-        }
-
-        [HttpGet]
-        [Route("")]
-        public Task<Item[]> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpGet]
-        [Route("{itemrd}")]
-        public Task<Item> Get(string itemId)
-        {
-            
-            throw new NotImplementedException();
+        public ItemsController(ItemsProcessor processor){
+            _processor = processor;
         }
 
         [HttpPost]
-        [Route("")]
+        [LowLevelPlayerExceptionFilter]
         [ValidateModel]
-        public Task<Player> Create(NewItem newItem)
+        public Task<Item> CreateItem(Guid playerId, [FromBody] NewItem item)
         {
-            _logger.LogInformation("Creating item with name " + newItem.Name);
-            return _itemProcessor.CreateItem(newItem);
+            return _processor.CreateItem(playerId, item);
         }
 
-        [HttpDelete]
-        [Route("{itemId}")]
-        public Task<Item> Ban(Guid itemId)
+        [HttpGet]
+        public Task<Item[]> GetAllItems(Guid playerId)
         {
-            throw new NotImplementedException();
+            return _processor.GetAllItems(playerId);
+        }
+
+        [HttpGet("{itemId:Guid}")]
+        public Task<Item> GetItem(Guid playerId, Guid itemId)
+        {
+            return _processor.GetItem(playerId, itemId);
+        }
+
+        [HttpPut("{itemId:Guid}")]
+        public Task<Item> ModifyItem(Guid playerId, Guid itemId, [FromBody] ModifiedItem item)
+        {
+            return _processor.ModifyItem(playerId, itemId, item);
+        }
+
+        [HttpDelete("{itemId:Guid}")]
+        public Task<Item> DeleteItem(Guid playerId, Guid itemId)
+        {
+            return _processor.DeleteItem(playerId, itemId);
         }
     }
-
 }

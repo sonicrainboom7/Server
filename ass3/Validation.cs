@@ -1,21 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
+
 namespace ass3
 {
-    public class Validation : ValidationAttribute, IClientModelValidator
+    
+    public class Validation : ValidationAttribute
     {
-        private int _year;
-    }
-    public class Valdation(int year){
-        _year = year;
-    }
-     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-    {
-        Item item = (Item)validationContext.ObjectInstance;
-
-        if (item.CreationDate.year > _year)
-        {
-            return new ValidationResult(GetErrorMessage());
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext) {
+            DateTime date = (DateTime)validationContext.ObjectInstance;
+            if (date > DateTime.Now) {
+                return new ValidationResult("Invalid DateTime");
+            }
+            return ValidationResult.Success;
         }
-
-        return ValidationResult.Success;
     }
 }

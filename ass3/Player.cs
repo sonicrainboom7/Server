@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 namespace ass3
 {
     public class Player
@@ -12,9 +13,16 @@ namespace ass3
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Score { get; set; }
+        [Range(1, 99)]
         public int Level { get; set; }
         public bool IsBanned { get; set; }
-        public DateTime CreationDate { get; set; }
+        [Validation]
+        public DateTime CreationTime { get; set; }
         public List<Item> Items { get; set; }
+
+        public void Modify(ModifiedPlayer player) {
+            Score = player.Score;
+            Level = player.Level;
+        }
     }
 }
