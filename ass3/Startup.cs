@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,8 @@ namespace ass3
             services.AddSingleton<IRepository, MongoDbRepository>();
             services.AddSingleton<PlayersProcessor>();
             services.AddSingleton<ItemsProcessor>();
+            services.AddSingleton<LogProcessor>();
+            services.AddSingleton<ApiKey>(new ApiKey(Configuration.GetValue<string>("api-key"), Configuration.GetValue<string>("api-key-admin")));
 
             services.AddMvc(options => {
                 options.Filters.Add(new LowLevelPlayerExceptionFilterAttribute()); // custom filter - applies to all controllers and their actions

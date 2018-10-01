@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace ass3
 {
-       public class InMemoryRepository : IRepository
+    public class InMemoryRepository : IRepository
     {
         private List<Player> players = new List<Player>();
 

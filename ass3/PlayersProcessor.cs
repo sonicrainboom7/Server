@@ -42,5 +42,27 @@ namespace ass3
         {
             return _repository.DeletePlayer(id);
         }
+
+        // Assignment 5
+
+        public Task<Player[]> MoreThanXScore(int x) 
+        {
+            return _repository.MoreThanXScore(x);
+        }
+
+        public Task<Player> GetPlayerWithName(string name)
+        {
+            return _repository.GetPlayerWithName(name);
+        }
+
+        public Task<Player[]> GetPlayersWithItemType(Item.ItemType itemType)
+        {
+            return _repository.GetPlayersWithItemType(itemType);
+        }
+
+        public Task<int> GetLevelsWithMostPlayers() 
+        {
+            return _repository.GetLevelsWithMostPlayers();
+        }
     }
 }
