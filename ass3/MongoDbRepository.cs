@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace web_api
+namespace ass3
 {
     public class MongoDbRepository : IRepository
     {
@@ -123,7 +123,7 @@ namespace web_api
             return item;
         }
 
-        // Assignment 5
+        // tehtävä5
 
         public async Task<Player[]> MoreThanXScore(int x)
         {
@@ -162,7 +162,7 @@ namespace web_api
             return result[0].level;
         }
 
-        // Assignment 6
+        // tehtävä6
 
         public async Task WriteToLog(LogEntry logEntry)
         {
